@@ -1,3 +1,15 @@
 @import 'tailwindcss/dist/base.css';
 @import 'tailwindcss/dist/components.css';
 @import 'tailwindcss/dist/utilities.css';
+
+#app {
+    margin-top: 44px;
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+}
+
+@media (max-width: 640px) {
+    .card-container h2 {
+        font-size: 14px;
+    }
+}
