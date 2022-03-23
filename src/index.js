@@ -3,6 +3,13 @@ console.log('Happy hacking :)')
 const baseUrl = "https://platzi-avo.vercel.app";
 const appNode = document.querySelector("#app");
 
+const formatPrice = (price) => {
+    const newPrice = new window.Intl.NumberFormat("en-EN", {
+        style: "currency",
+        currency: "USD",
+    }).format(price)
+    return newPrice;
+};
 
 window
     .fetch(`${baseUrl}/api/avo`)
@@ -23,7 +30,7 @@ window
             title.className = "font-medium text-lg ";
 
             const price = document.createElement("div");
-            price.textContent = item.price;
+            price.textContent = formatPrice(item.price);
             price.className = "text-gray-600";
 
             const container = document.createElement("div");
@@ -36,4 +43,4 @@ window
             
         });
         appNode.append(...allItems);
-    });
+    }); 
